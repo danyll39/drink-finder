@@ -15,26 +15,37 @@ Find a cocktail by name, or by an ingredient you already have, and get the full 
 
 ## Built with
 
-HTML, CSS, and JavaScript modules, with no frameworks or build step. Data comes from [TheCocktailDB](https://www.thecocktaildb.com) free API, whose test key is meant for learning and development projects.
+React and [Vite](https://vite.dev). Data comes from [TheCocktailDB](https://www.thecocktaildb.com) free API, whose test key is meant for learning and development projects.
 
 ```
-index.html        Page layout
-style.css         Design, light and dark themes, phone layout
-script.js         Search, results, recipe dialog, favorites, shareable links
-js/api.js         Requests to TheCocktailDB and recipe formatting
-js/favorites.js   Saved drinks in localStorage
+index.html                      Page shell that React mounts into
+src/main.jsx                    Starts the app
+src/App.jsx                     App state: searches, favorites, shareable links, the open drink
+src/components/SearchForm.jsx   Name/ingredient toggle, search box, spirit quick starts
+src/components/DrinkGrid.jsx    Result cards with save buttons, loading skeleton
+src/components/DrinkDialog.jsx  Recipe pop-up
+src/components/Heart.jsx        Heart icon
+src/useToast.js                 Short "Saved" / "Link copied" messages
+src/api.js                      Requests to TheCocktailDB and recipe formatting
+src/favorites.js                Saved drinks in localStorage
+src/style.css                   Design, light and dark themes, phone layout
 ```
 
 ## Run it locally
 
-Browsers block JavaScript modules opened straight from a file, so use a small local server:
-
 ```bash
-npx serve .
+npm install
+npm run dev
 ```
 
-Then open the address it prints.
+Then open the address it prints. `npm run build` makes the production version in `dist/`.
 
-## What changed in the 2026 update
+## Deploying
 
-The original 2021 version stopped opening drinks in current browsers because it relied on the removed `event.path` property. The rewrite fixes that and adds ingredient search, favorites, shareable links, step-by-step recipes, safer HTML handling, and a new responsive design.
+`.github/workflows/deploy.yml` builds the app and publishes it to GitHub Pages on every push to `master`. In the repo's **Settings → Pages**, set **Source** to **GitHub Actions** once.
+
+## History
+
+- **2021:** First version in plain JavaScript.
+- **2026:** Rewritten to fix opening drinks in current browsers (it relied on the removed `event.path`), adding ingredient search, favorites, shareable links, and a responsive design.
+- **2026:** Converted to React components with Vite.
