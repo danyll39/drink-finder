@@ -8,56 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <h1>Cocktail Time</h1>
-      <p class="lede">Find a drink by name, or by what's already on your shelf.</p>
-
-      <form class="search" id="search-form" role="search">
-        <div class="mode" role="radiogroup" aria-label="Search by">
-          <label><input type="radio" name="mode" value="name" checked> Drink name</label>
-          <label><input type="radio" name="mode" value="ingredient"> Ingredient</label>
-        </div>
-        <div class="search-row">
-          <label for="query" class="visually-hidden">Search</label>
-          <input id="query" type="search" autocomplete="off" placeholder="Try margarita" required>
-          <button class="btn primary" type="submit">Search</button>
-          <button class="btn" type="button" id="random">Surprise me</button>
-        </div>
-      </form>
-
-      <div class="quick" aria-label="Popular spirits">
-        <span>Or start with</span>
-        <button type="button" data-ingredient="Gin">Gin</button>
-        <button type="button" data-ingredient="Tequila">Tequila</button>
-        <button type="button" data-ingredient="Rum">Rum</button>
-        <button type="button" data-ingredient="Vodka">Vodka</button>
-        <button type="button" data-ingredient="Bourbon">Bourbon</button>
-      </div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <div class="results-head">
-      <h2 id="results-title" aria-live="polite">Popular right now</h2>
-      <button class="btn small" type="button" id="show-saved" aria-pressed="false">Saved <span id="saved-count">0</span></button>
-    </div>
-    <p id="status" class="status" role="status"></p>
-    <ul id="results" class="grid" aria-labelledby="results-title"></ul>
-  </main>
-
-  <dialog id="drink-dialog" aria-labelledby="drink-name">
-    <div class="dialog-body" id="drink-body"></div>
-  </dialog>
-
-  <footer class="wrap foot">
-    <p>Built by <a href="https://github.com/danyll39">Ursala Lindsey</a> with JavaScript and <a href="https://www.thecocktaildb.com">TheCocktailDB</a>. Please drink responsibly.</p>
-  </footer>
-
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="script.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
